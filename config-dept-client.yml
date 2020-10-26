@@ -1,14 +1,13 @@
-spring:
-  profiles:
-    active:
+spring: 
+  profiles: 
+    active: 
       - dev
 --- 
-server:
+server: 
   port: 8001
-
-spring:
+spring: 
   profiles: dev
-  application:
+  application: 
     name: cloud-config-dept-client
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
@@ -20,15 +19,12 @@ spring:
       min-idle: 5
       initial-size: 5
       max-total: 5
-      max-wait-millis: 200 
-
-mybatis:
+      max-wait-millis: 200
+mybatis: 
   config-location: classpath:mybatis/mybatis.cfg.xml
   type-aliases-package: com.xiong.cloud.entity
   mapper-locations:
     - classpath:mybatis/mapper/**/*.xml
-
-
 eureka:
   client:
     service-url:
@@ -36,20 +32,17 @@ eureka:
   instance:
     instance-id: dept8001
     prefer-ip-address: true
-
-
 info:
   app.name: provider-config-8081
   company.name: www.xiongjc.top
   build.artifactId: @project.artifactId@
   build.version: @project.version@
 ---
-server:
-  port: 8001
-
-spring:
+server: 
+  port: 8002
+spring: 
   profiles: test
-  application:
+  application: 
     name: cloud-config-dept-client
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
@@ -61,24 +54,19 @@ spring:
       min-idle: 5
       initial-size: 5
       max-total: 5
-      max-wait-millis: 200 
-
-mybatis:
+      max-wait-millis: 200
+mybatis: 
   config-location: classpath:mybatis/mybatis.cfg.xml
   type-aliases-package: com.xiong.cloud.entity
   mapper-locations:
     - classpath:mybatis/mapper/**/*.xml
-
-
 eureka:
   client:
     service-url:
       defaultZone: http://eureka7001.com:7001/eureka
   instance:
-    instance-id: dept8001
+    instance-id: dept8002
     prefer-ip-address: true
-
-
 info:
   app.name: provider-config-8082
   company.name: www.xiongjc.top
